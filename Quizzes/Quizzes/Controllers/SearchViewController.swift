@@ -10,12 +10,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-     let searchData = SearchView()
+     var searchData = SearchView()
     
-    private var search = FlashCardData(){
+    private var search = [FlashCards](){
     didSet {
         DispatchQueue.main.async {
-            self.searchData.searchView.setNeedsLayout()
+            self.searchData.searchView.reloadData()
         }
         }
     }
@@ -24,25 +24,25 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(searchData)
-        searchData.searchView.delegate = (self as UICollectionViewDelegate)
-        searchData.searchView.dataSource = (self as UICollectionViewDataSource)
-        searchinfo()
+        searchData.searchView.delegate = self
+        searchData.searchView.dataSource = self
+        getSearchData()
     }
     
     
-    private func searchinfo() {
-        APIClient.init().getSearchData(completionHandler: { (error, search) in
-            if let error = error {
-                print(error.errorMessage())
-            }           else if let data = search {
+    private func getSearchData() {
+        APIClient.getSearchData { (appError, quizData) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            }   else if let data = quizData {
                 self.search = data
-                dump(search)
+                dump(data)
             }
     
     
     
 }
-)}
+}
 
 
 }
@@ -52,13 +52,14 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return search.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SCell", for: indexPath) as?
             SearchCell else { return UICollectionViewCell() }
-        
+        let searchInfo = search[indexPath.row]
+        cell.label.text = searchInfo.quizTitle
         return cell
 }
 

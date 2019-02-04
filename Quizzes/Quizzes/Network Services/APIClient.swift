@@ -9,7 +9,7 @@
 import Foundation
 
 final class APIClient {
-    func getSearchData(completionHandler: @escaping ((AppError?, FlashCardData?)-> Void)) {
+    static func getSearchData(completionHandler: @escaping ((AppError?, [FlashCards]?)-> Void)) {
         let url = "https://quizzes-9ff59.firebaseio.com/.json"
         NetworkHelper.shared.performDataTask(endpointURLString: url, httpMethod: "GET", httpBody: nil) { (error, data) in
         if let error = error {
@@ -17,8 +17,8 @@ final class APIClient {
         }
         if let data = data {
         do {
-            let searchInfo = try JSONDecoder().decode(FlashCards.self, from: data)
-        completionHandler(nil, searchInfo.results)
+            let searchInfo = try JSONDecoder().decode([FlashCards].self, from: data)
+        completionHandler(nil, searchInfo)
         } catch {
         completionHandler(AppError.jsonDecodingError(error), nil)
             }

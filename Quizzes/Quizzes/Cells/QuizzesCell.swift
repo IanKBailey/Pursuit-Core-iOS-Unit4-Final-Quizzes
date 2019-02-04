@@ -24,11 +24,7 @@ class QuizzesCell: UICollectionViewCell {
         button.setImage(UIImage(named: "more-filled"), for: .normal)
         return button
     }()
-    
-    
-    
-    
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(label)
