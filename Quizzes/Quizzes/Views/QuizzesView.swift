@@ -19,18 +19,16 @@ class QuizzesView: UIView {
         layout.scrollDirection = .vertical
         return cv
     }()
-
     
     override init(frame: CGRect) {
-        super .init(frame: UIScreen.main.bounds)
+        super.init(frame: UIScreen.main.bounds)
         addSubview(collectionView)
-        collectionView.register(QuizzesCell.self, forCellWithReuseIdentifier: "QuizCell")
+        collectionView.register(QuizzesCell.self, forCellWithReuseIdentifier: "QCell")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
         

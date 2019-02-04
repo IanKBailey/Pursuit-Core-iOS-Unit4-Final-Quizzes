@@ -12,7 +12,7 @@ class QuizzesCell: UICollectionViewCell {
     
     lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "Place Holder Text asdsada sdasda sda dadfsaf sfasfa asfaga"
+        label.text = "Place Holder Text "
         label.backgroundColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0

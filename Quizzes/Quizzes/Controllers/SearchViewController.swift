@@ -10,21 +10,56 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+     let searchData = SearchView()
+    
+    private var search = FlashCardData(){
+    didSet {
+        DispatchQueue.main.async {
+            self.searchData.searchView.setNeedsLayout()
+        }
+        }
+    }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.addSubview(searchData)
+        searchData.searchView.delegate = (self as UICollectionViewDelegate)
+        searchData.searchView.dataSource = (self as UICollectionViewDataSource)
+        searchinfo()
     }
     
+    
+    private func searchinfo() {
+        APIClient.init().getSearchData(completionHandler: { (error, search) in
+            if let error = error {
+                print(error.errorMessage())
+            }           else if let data = search {
+                self.search = data
+                dump(search)
+            }
+    
+    
+    
+}
+)}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+
+
+
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SCell", for: indexPath) as?
+            SearchCell else { return UICollectionViewCell() }
+        
+        return cell
+}
 
 }

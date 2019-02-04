@@ -18,6 +18,8 @@
 		56870EFE2204EC9100BB215F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870EFD2204EC9100BB215F /* SearchViewController.swift */; };
 		56870F002204ECA700BB215F /* SearchVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870EFF2204ECA700BB215F /* SearchVIew.swift */; };
 		56870F022204ECD600BB215F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870F012204ECD600BB215F /* SearchCell.swift */; };
+		56870F0522079BAF00BB215F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870F0422079BAF00BB215F /* SearchModel.swift */; };
+		56870F072207A24300BB215F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870F062207A24300BB215F /* APIClient.swift */; };
 		577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577118C02203796A00B9DD0B /* AppDelegate.swift */; };
 		577118C62203796A00B9DD0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577118C42203796A00B9DD0B /* Main.storyboard */; };
 		577118C82203796B00B9DD0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577118C72203796B00B9DD0B /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		56870EFD2204EC9100BB215F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		56870EFF2204ECA700BB215F /* SearchVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVIew.swift; sourceTree = "<group>"; };
 		56870F012204ECD600BB215F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		56870F0422079BAF00BB215F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		56870F062207A24300BB215F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		577118BD2203796A00B9DD0B /* Quizzes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577118C02203796A00B9DD0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		577118C52203796A00B9DD0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,10 +72,10 @@
 		56870EE62204A8B000BB215F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				56870EEA2204AB1400BB215F /* QuizzesViewController.swift */,
 				56870EEC2204ABF700BB215F /* TabBarController.swift */,
 				56870EEE2204B11B00BB215F /* CreateViewController.swift */,
 				56870EF02204B12900BB215F /* ProfileViewController.swift */,
+				56870EEA2204AB1400BB215F /* QuizzesViewController.swift */,
 				56870EFD2204EC9100BB215F /* SearchViewController.swift */,
 			);
 			path = Controllers;
@@ -97,6 +101,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		56870F0322079B8800BB215F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56870F0422079BAF00BB215F /* SearchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		577118B42203796A00B9DD0B = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +128,7 @@
 		577118BF2203796A00B9DD0B /* Quizzes */ = {
 			isa = PBXGroup;
 			children = (
+				56870F0322079B8800BB215F /* Models */,
 				56870EF62204C1B500BB215F /* Cells */,
 				56870EE72204A9AA00BB215F /* Views */,
 				56870EE62204A8B000BB215F /* Controllers */,
@@ -134,6 +147,7 @@
 			children = (
 				577118D422037A9F00B9DD0B /* AppError.swift */,
 				577118D622037ABA00B9DD0B /* NetworkHelper.swift */,
+				56870F062207A24300BB215F /* APIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -239,8 +253,10 @@
 				56870EFE2204EC9100BB215F /* SearchViewController.swift in Sources */,
 				56870EFC2204C54E00BB215F /* QuizzesView.swift in Sources */,
 				56870EF32204BC0300BB215F /* CreateView.swift in Sources */,
+				56870F0522079BAF00BB215F /* SearchModel.swift in Sources */,
 				56870EEB2204AB1400BB215F /* QuizzesViewController.swift in Sources */,
 				56870EED2204ABF700BB215F /* TabBarController.swift in Sources */,
+				56870F072207A24300BB215F /* APIClient.swift in Sources */,
 				56870EF12204B12900BB215F /* ProfileViewController.swift in Sources */,
 				56870EF52204BC2000BB215F /* ProfileView.swift in Sources */,
 				56870EEF2204B11B00BB215F /* CreateViewController.swift in Sources */,
