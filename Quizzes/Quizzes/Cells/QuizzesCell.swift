@@ -12,7 +12,7 @@ class QuizzesCell: UICollectionViewCell {
     
     lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "Place Holder Text "
+        label.text = "Place Holder Text"
         label.backgroundColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -29,6 +29,7 @@ class QuizzesCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(label)
         addSubview(button)
+        backgroundColor = .green
         constraints()
     }
     
@@ -42,11 +43,11 @@ class QuizzesCell: UICollectionViewCell {
         label.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 5).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
-        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 11).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
         
         
         

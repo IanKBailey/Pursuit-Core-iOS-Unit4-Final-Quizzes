@@ -12,17 +12,16 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        let quizTab = QuizzesViewController()
         let createTab = CreateViewController()
+        let quizTab = QuizzesViewController()
         let profileTab = ProfileViewController()
         let searchTab = SearchViewController()
-        quizTab.tabBarItem = UITabBarItem(title: "Quizzes", image: UIImage(named: "quiz-icon"), tag: 0)
-        createTab.tabBarItem = UITabBarItem(title: "Create", image: UIImage(named: "create-icon"), tag: 2)
-        profileTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-unfilled"), tag: 3)
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: ""), tag: 1)
+        quizTab.tabBarItem = UITabBarItem(title: "Quizzes", image: UIImage(named: "quiz"), tag: 0)
+        createTab.tabBarItem = UITabBarItem(title: "Create", image: UIImage(named: "create"), tag: 2)
+        profileTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 3)
+        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "add"), tag: 1)
         let tabBarList = [quizTab, searchTab, createTab, profileTab]
-        viewControllers = tabBarList
+        viewControllers = tabBarList.map(UINavigationController.init)
     }
     
 

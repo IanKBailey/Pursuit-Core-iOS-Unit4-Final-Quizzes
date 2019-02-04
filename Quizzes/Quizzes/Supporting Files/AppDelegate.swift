@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let nav = TabBarController()
     
     window = UIWindow.init(frame: UIScreen.main.bounds)
-    window?.rootViewController = UINavigationController(rootViewController: nav)
+    window?.rootViewController = nav
     window?.makeKeyAndVisible()
     
     

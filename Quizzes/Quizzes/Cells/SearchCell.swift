@@ -12,7 +12,6 @@ class SearchCell: UICollectionViewCell {
     
     lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "place holder text afsfasfafa fdgggdsgf dfsafag eegseg fasfg hr"
         label.backgroundColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -21,7 +20,7 @@ class SearchCell: UICollectionViewCell {
     
     lazy var button: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "add-icon-filled"), for: .normal)
+        button.setImage(UIImage(named: "add"), for: .normal)
         return button
     }()
     
@@ -29,6 +28,7 @@ class SearchCell: UICollectionViewCell {
         super .init(frame: frame)
         addSubview(label)
         addSubview(button)
+        backgroundColor = .white
         constraints()
     }
     
@@ -45,7 +45,7 @@ class SearchCell: UICollectionViewCell {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
-        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 11).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
         
     }
     

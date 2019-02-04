@@ -16,11 +16,9 @@ class SearchViewController: UIViewController {
     didSet {
         DispatchQueue.main.async {
             self.searchData.searchView.reloadData()
-        }
+            }
         }
     }
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(searchData)
@@ -28,8 +26,6 @@ class SearchViewController: UIViewController {
         searchData.searchView.dataSource = self
         getSearchData()
     }
-    
-    
     private func getSearchData() {
         APIClient.getSearchData { (appError, quizData) in
             if let appError = appError {
@@ -38,17 +34,9 @@ class SearchViewController: UIViewController {
                 self.search = data
                 dump(data)
             }
-    
-    
-    
+        }
+    }
 }
-}
-
-
-}
-
-
-
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,6 +49,5 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let searchInfo = search[indexPath.row]
         cell.label.text = searchInfo.quizTitle
         return cell
-}
-
+    }
 }
